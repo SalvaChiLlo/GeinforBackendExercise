@@ -16,6 +16,12 @@ public class PaisEntity {
     @Column
     int poblacion = -1;
 
+    @Column
+    String estado = "";
+
+    @Column
+    int deuda = (int) (Math.random() * 10_000_000);
+
     @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "capital_id", referencedColumnName = "id", nullable = false)
     CapitalEntity capital;
