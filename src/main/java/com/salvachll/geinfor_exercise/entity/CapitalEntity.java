@@ -10,7 +10,7 @@ public class CapitalEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @Column
+    @Column(unique = true)
     String nombre;
 
     public CapitalEntity(int id, String nombre) {

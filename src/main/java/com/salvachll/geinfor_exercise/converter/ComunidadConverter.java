@@ -13,14 +13,18 @@ public class ComunidadConverter {
     public static ComunidadModel entityToModel(ComunidadEntity comunidad) {
         return new ComunidadModel(
                 comunidad.getId(),
-                comunidad.getNombre()
+                comunidad.getNombre(),
+                comunidad.getPoblacion(),
+                comunidad.getPais()
         );
     }
 
     public static ComunidadEntity modelToEntity(ComunidadModel comunidad) {
         return new ComunidadEntity(
                 comunidad.getId(),
-                comunidad.getNombre()
+                comunidad.getNombre(),
+                comunidad.getPoblacion(),
+                comunidad.getPais()
         );
     }
 

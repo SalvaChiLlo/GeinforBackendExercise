@@ -14,6 +14,7 @@ public class PaisConverter {
         return new PaisModel(
                 pais.getId(),
                 pais.getNombre(),
+                pais.getPoblacion(),
                 pais.getCapital()
         );
     }
@@ -22,6 +23,7 @@ public class PaisConverter {
         return new PaisEntity(
                 pais.getId(),
                 pais.getNombre(),
+                pais.getPoblacion(),
                 pais.getCapital()
         );
     }

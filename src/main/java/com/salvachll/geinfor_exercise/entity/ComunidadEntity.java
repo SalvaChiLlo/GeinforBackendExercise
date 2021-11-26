@@ -10,17 +10,22 @@ public class ComunidadEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @Column
+    @Column(unique = true)
     String nombre;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pais_id", referencedColumnName = "id", nullable = false)
+    @Column
+    int poblacion = -1;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "pais_id", nullable = false)
     PaisEntity pais;
 
 
-    public ComunidadEntity(int id, String nombre) {
+    public ComunidadEntity(int id, String nombre, int poblacion, PaisEntity pais) {
         this.id = id;
         this.nombre = nombre;
+        this.poblacion = poblacion;
+        this.pais = pais;
     }
 
     public ComunidadEntity() {
@@ -40,5 +45,21 @@ public class ComunidadEntity {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public PaisEntity getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisEntity pais) {
+        this.pais = pais;
+    }
+
+    public int getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
     }
 }

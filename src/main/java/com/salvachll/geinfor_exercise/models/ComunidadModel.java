@@ -5,11 +5,14 @@ import com.salvachll.geinfor_exercise.entity.PaisEntity;
 public class ComunidadModel {
     int id;
     String nombre;
+    int poblacion = -1;
     PaisEntity pais;
 
-    public ComunidadModel(int id, String nombre) {
+    public ComunidadModel(int id, String nombre, int poblacion, PaisEntity pais) {
         this.id = id;
         this.nombre = nombre;
+        this.poblacion = poblacion;
+        this.pais = pais;
     }
 
     public ComunidadModel() {
@@ -29,5 +32,21 @@ public class ComunidadModel {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public PaisEntity getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisEntity pais) {
+        this.pais = pais;
+    }
+
+    public int getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
     }
 }

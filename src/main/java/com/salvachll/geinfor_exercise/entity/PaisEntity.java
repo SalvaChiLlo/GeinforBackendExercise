@@ -10,16 +10,20 @@ public class PaisEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @Column
+    @Column(unique = true)
     String nombre;
 
-    @OneToOne(optional = false, fetch = FetchType.EAGER)
+    @Column
+    int poblacion = -1;
+
+    @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "capital_id", referencedColumnName = "id", nullable = false)
     CapitalEntity capital;
 
-    public PaisEntity(int id, String nombre, CapitalEntity capital) {
+    public PaisEntity(int id, String nombre, int poblacion, CapitalEntity capital) {
         this.id = id;
         this.nombre = nombre;
+        this.poblacion = poblacion;
         this.capital = capital;
     }
 
@@ -48,5 +52,13 @@ public class PaisEntity {
 
     public void setCapital(CapitalEntity capital) {
         this.capital = capital;
+    }
+
+    public int getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
     }
 }

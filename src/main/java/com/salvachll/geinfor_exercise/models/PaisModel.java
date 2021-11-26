@@ -4,14 +4,14 @@ import com.salvachll.geinfor_exercise.entity.CapitalEntity;
 
 public class PaisModel {
     int id;
-
     String nombre;
-
+    int poblacion = -1;
     CapitalEntity capital;
 
-    public PaisModel(int id, String nombre, CapitalEntity capital) {
+    public PaisModel(int id, String nombre, int poblacion, CapitalEntity capital) {
         this.id = id;
         this.nombre = nombre;
+        this.poblacion = poblacion;
         this.capital = capital;
     }
 
@@ -40,5 +40,13 @@ public class PaisModel {
 
     public void setCapital(CapitalEntity capital) {
         this.capital = capital;
+    }
+
+    public int getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
     }
 }
